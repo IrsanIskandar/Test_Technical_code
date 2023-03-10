@@ -2,8 +2,127 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Test Technical Code</h1>
 
-Welcome to your new app.
+<InputText @bind-Value="@bindNum" />
+<br />
+<br />
+<input @onchange="((e) => IsGenrateChange(e))" id="Segitiga" type="radio" name="IsGenerate" value="S" />
+<label for="Segitiga">Generate Segitiga</label>
+<input @onchange="((e) => IsGenrateChange(e))" id="Ganjil" type="radio" name="IsGenerate" value="G" />
+<label for="Ganjil">Generate Bilangan Ganjil</label>
+<input @onchange="((e) => IsGenrateChange(e))" id="Prima" type="radio" name="IsGenerate" value="P" />
+<label for="Prima">Generate Bilangan Prima</label>
+<br/>
+<br/>
+<button @onclick="((e) => GenerateSegitiga())">Generate Segitida</button>
+<button @onclick="((e) => GenerateBilanganGanjil())">Generate Bilangan Ganjil</button>
+<button @onclick="((e) => GenerateBilanganPrima())">Generate Bilangan Prima</button>
+<br />
+<br />
+<label>Result</label>
+<InputTextArea @bind-Value="@bindResult"></InputTextArea>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private string bindNum;
+    private string isGenerate;
+    private string bindResult;
+
+    private void IsGenrateChange(ChangeEventArgs args)
+    {
+        if (args.Value is not null)
+        {
+            isGenerate = args.Value as string;
+        }
+    }
+
+    private void GenerateSegitiga()
+    {
+        var getNum = Convert.ToInt32(bindNum);
+        if (!string.IsNullOrEmpty(isGenerate) && isGenerate.Equals("S"))
+        {
+            if (getNum != 0)
+            {
+                bindResult = string.Empty;
+                StateHasChanged();
+                for (int i = 1; i <= bindNum.Length; i++)
+                {
+                    for (int j = 1; j <= i; j++)
+                    {
+                        if (bindNum.Contains(j.ToString()))
+                        {
+                            bindResult += $"{j} ";
+                        }
+                        else
+                        {
+                            bindResult += $"0 ";
+                        }
+                        StateHasChanged();
+                    }
+
+                    bindResult += $"\r\n";
+                    StateHasChanged();
+                }
+            }
+        }
+    }
+
+    private void GenerateBilanganGanjil()
+    {
+        if (!string.IsNullOrEmpty(isGenerate) && isGenerate.Equals("G"))
+        {
+            var getNum = Convert.ToInt32(bindNum);
+            if (getNum != 0)
+            {
+                bindResult = string.Empty;
+                StateHasChanged();
+                for (int i = 0; i <= getNum; i += 3)
+                {
+                    bindResult += $"{i} ";
+                    Console.WriteLine(i + " ");
+                }
+            }
+
+            StateHasChanged();
+        }
+    }
+
+    private void GenerateBilanganPrima()
+    {
+        if (!string.IsNullOrEmpty(isGenerate) && isGenerate.Equals("P"))
+        {
+            var getNum = Convert.ToInt32(bindNum);
+            if (getNum != 0)
+            {
+                bindResult = string.Empty;
+                StateHasChanged();
+                for (int i = 2; i <= getNum; i++)
+                {
+                    bool isPrime = false;
+
+                    for (int j = 2; j < i; j++)
+                    {
+                        if (i % j == 0)
+                        {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+
+                    if (isPrime)
+                    {
+                        bindResult += "Bilangan Prima : " + i + " True\r\n";
+                        Console.WriteLine(i + " ");
+                    }
+                    else
+                    {
+                        bindResult += "Bilangan Prima : False\r\n";
+                    }
+                }
+
+                StateHasChanged();
+            }
+        }
+    }
+}
+

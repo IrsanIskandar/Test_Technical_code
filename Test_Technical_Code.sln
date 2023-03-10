@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Technical_Code", "Test_Technical_Code\Test_Technical_Code.csproj", "{4555D460-F3DA-41D6-AA14-7899ACBDF61B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_Technical_Code", "Test_Technical_Code\Test_Technical_Code.csproj", "{4555D460-F3DA-41D6-AA14-7899ACBDF61B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTechicalCode_WithBlazor", "TestTechicalCode_WithBlazor\TestTechicalCode_WithBlazor.csproj", "{52173962-D6C5-44E5-88B6-806C034A481D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4555D460-F3DA-41D6-AA14-7899ACBDF61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4555D460-F3DA-41D6-AA14-7899ACBDF61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4555D460-F3DA-41D6-AA14-7899ACBDF61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52173962-D6C5-44E5-88B6-806C034A481D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52173962-D6C5-44E5-88B6-806C034A481D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52173962-D6C5-44E5-88B6-806C034A481D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52173962-D6C5-44E5-88B6-806C034A481D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
